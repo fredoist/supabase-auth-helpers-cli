@@ -1,0 +1,42 @@
+{
+  "name": "supabase-auth-helpers-cli",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fredoist/supabase-auth-helpers-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fredoist/supabase-auth-helpers-cli/issues"
+  },
+  "homepage": "https://github.com/fredoist/supabase-auth-helpers-cli#readme",
+  "keywords": [
+    "supabase",
+    "auth",
+    "helpers",
+    "cli"
+  ],
+  "author": "Freddy González <@fredoist>",
+  "license": "MIT",
+  "devDependencies": {
+    "@supabase/supabase-js": "2.21.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.4"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.21.0"
+  }
+}
