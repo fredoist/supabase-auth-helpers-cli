@@ -10,7 +10,7 @@ export function createCLISupabaseClient(
   supabaseKey: string,
   options?: SupabaseClientOptions<'public'> | undefined
 ) {
-  const key = supabaseUrl.split('//')[1].split('.')[0];
+  const key = new URL(supabaseUrl).host;
   let currentSession = getSession(key) ?? null;
 
   return createClient(supabaseUrl, supabaseKey, {
