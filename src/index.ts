@@ -10,7 +10,8 @@ export function createCLISupabaseClient(
   supabaseKey: string,
   options?: SupabaseClientOptions<'public'> | undefined
 ) {
-  let currentSession = getSession() ?? null
+  const key = supabaseUrl.split('//')[1].split('.')[0];
+  let currentSession = getSession(key) ?? null;
 
   return createClient(supabaseUrl, supabaseKey, {
     ...options,
@@ -19,19 +20,19 @@ export function createCLISupabaseClient(
       autoRefreshToken: false,
       storage: {
         getItem() {
-          return JSON.stringify(currentSession)
+          return JSON.stringify(currentSession);
         },
         setItem(_, value: string) {
-          const session: Session = JSON.parse(value)
-          currentSession = session
-          saveSession(session)
+          const session: Session = JSON.parse(value);
+          currentSession = session;
+          saveSession(session, key);
         },
         removeItem() {
-          if (!currentSession) return
-          currentSession = null
-          deleteSession()
-        }
-      }
-    }
-  })
+          if (!currentSession) return;
+          currentSession = null;
+          deleteSession(key);
+        },
+      },
+    },
+  });
 }
