@@ -28,3 +28,8 @@ yarn-error.log*
 dist/
 package/
 docs/
+
+# Lock files
+package-lock.json
+yarn.lock
+.pnpm-lock.yaml
